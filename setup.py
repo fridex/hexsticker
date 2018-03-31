@@ -45,7 +45,7 @@ setup(
     description='Convert any image to image that conforms to hexagon stickers standard.',
     long_description=get_long_description(),
     url='https://github.com/fridex/hexsticker',
-    license='BSD',
+    license='GPLv2',
     keywords='hexagon stickers hexagon-stickers',
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -54,7 +54,7 @@ setup(
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Intended Audience :: Developers",
-        "License :: OSI Approved :: BSD License",
+        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy"
