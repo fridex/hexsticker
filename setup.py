@@ -42,21 +42,25 @@ setup(
     author_email='fridolin.pokorny@gmail.com',
     maintainer='Fridolin Pokorny',
     maintainer_email='fridolin.pokorny@gmail.com',
-    description='Convert any image to image that conforms to hexagon stickers standard.',
+    description='Convert any image to image that conforms with hexagon stickers standard.',
     long_description=get_long_description(),
     url='https://github.com/fridex/hexsticker',
     license='GPLv2',
     keywords='hexagon stickers hexagon-stickers',
     classifiers=[
-        "Development Status :: 4 - Beta",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
-        "Intended Audience :: Developers",
+        "Environment :: Console",
+        "Intended Audience :: End Users/Desktop",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
         "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3 :: Only",
         "Programming Language :: Python :: Implementation :: CPython",
-        "Programming Language :: Python :: Implementation :: PyPy"
+        "Programming Language :: Python :: Implementation :: PyPy",
+        "Topic :: Multimedia :: Graphics",
+        "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+        "Topic :: Multimedia :: Graphics :: Presentation",
+        "Topic :: Utilities"
     ]
 )
