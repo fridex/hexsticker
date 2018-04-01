@@ -115,6 +115,7 @@ To run hexsticker from repository run the following commands:
 
   $ git clone https://github.com/fridex/hexsticker  # or use ssh
   $ cd hexsticker
+  $ pip3 install -r requirements.txt --user
   $ export PYTHONPATH='.'
   $ ./hexsticker-cli --help
 
