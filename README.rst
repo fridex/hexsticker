@@ -1,7 +1,7 @@
 hexsticker
 ----------
 
-Produce hexagon stickers automatically from an image in compliance to the `Stickers Standard <https://sticker.how/>`_.
+Produce hexagon stickers automatically from an image in compliance with the `Stickers Standard <https://sticker.how/>`_.
 
 
 Installation
@@ -17,6 +17,12 @@ After the installation step listed above, you will be able to use the `hexsticke
 .. code-block:: console
 
   $ hexsticker --help
+
+
+Requirements
+============
+
+* Python 3.6+
 
 
 Examples
@@ -85,7 +91,7 @@ Nice! What we could do next? Let's try to add a hexagon border:
    :align: center
    :scale: 50%
 
-Ehm, the default black one does not look that good in this case! Let's try some color that fits color scheme:
+Ehm, the default black one does not look that good in this case. Let's try some color that fits color scheme:
 
 .. code-block:: console
 
@@ -111,3 +117,4 @@ To run hexsticker from repository run the following commands:
   $ cd hexsticker
   $ export PYTHONPATH='.'
   $ ./hexsticker-cli --help
+
