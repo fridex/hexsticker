@@ -106,6 +106,8 @@ Ehm, the default black one does not look that good in this case. Let's try some 
 
 As you can see, this tool can automate creation of hexagon stickers so they respect the hexagon standard. Feel free to additionally adjust the resulting image of your logo or the input image.
 
+This tool supports only raster graphics.
+
 Running from repo
 =================
 
