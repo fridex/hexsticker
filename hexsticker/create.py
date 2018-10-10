@@ -9,7 +9,7 @@ from PIL import ImageOps
 
 import hexsticker.exception as exceptions
 
-DEFAULT_BACKGROUND_COLOR = 'white'
+DEFAULT_BACKGROUND_COLOR = '#ff000000'
 DEFAULT_BORDER_COLOR = 'black'
 DEFAULT_PADDING_COLOR = 'white'
 HEIGHT_TO_WIDTH_RATIO = 2 / 1.73
@@ -146,7 +146,7 @@ def create_hexsticker(image: str, output: str, *,
 
     _LOGGER.debug("Loading input image")
     try:
-        source_img = Image.open(image).convert("RGB")
+        source_img = Image.open(image).convert("RGBA")
     except Exception as exc:
         raise exceptions.LoadError(f"Failed to load input image {image}: {str(exc)}") from exc
 
@@ -164,7 +164,7 @@ def create_hexsticker(image: str, output: str, *,
         _LOGGER.debug("Creating hexagon border")
         _draw_hexagon(img, color=border_color or DEFAULT_BORDER_COLOR)
         border = Image.new(
-            'RGB',
+            'RGBA',
             (int(img.size[0] + border_size / HEIGHT_TO_WIDTH_RATIO), img.size[1] + border_size),
             color=border_color or DEFAULT_BORDER_COLOR
         )
