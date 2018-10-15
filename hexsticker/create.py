@@ -27,7 +27,7 @@ def _get_file_type(file_name: str) -> str:
 
     extension = extension[1].lower()
 
-    # Pillow does no know jpg, use jpeg correctly.
+    # Pillow does not know jpg, use jpeg correctly.
     if extension == 'jpg':
         extension = 'jpeg'
 
@@ -133,7 +133,7 @@ def create_hexsticker(image: str, output: str, *,
     :param border_size: Size of sticker hexagonal border.
     :param border_color: Color of hexagonal border (defaults to white).
     :param padding_size: Optional padding for the image.
-    :param padding_color: Color of padded area (default to white).
+    :param padding_color: Color of padded area (defaults to white).
     :param background_color: Color of background around hexagon
     :return: a path to resulting image
     """
