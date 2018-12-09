@@ -12,6 +12,7 @@ import hexsticker.exception as exceptions
 DEFAULT_BACKGROUND_COLOR = '#ff000000'
 DEFAULT_BORDER_COLOR = 'black'
 DEFAULT_PADDING_COLOR = 'white'
+DEFAULT_SUPERSAMPLE = 1
 HEIGHT_TO_WIDTH_RATIO = 2 / 1.73
 SUPPORTED_FILE_TYPES = frozenset(('jpg', 'png', 'jpeg', 'tiff', 'gif', 'bmp', 'eps'))
 
@@ -93,7 +94,8 @@ def _crop_image(img: Image) -> Image:
 
 def _check_options(border_size: int=0, border_color: str=None,
                    padding_size: int=0, padding_color: str=None,
-                   background_color=None) -> tuple:
+                   background_color=None,
+                   supersample: int=DEFAULT_SUPERSAMPLE) -> tuple:
     """Check supplied options."""
     if padding_size < 0:
         raise exceptions.InvalidOption(f"Padding size has to be non-zero, padding size provided: {padding_size}")
@@ -119,13 +121,17 @@ def _check_options(border_size: int=0, border_color: str=None,
         except ValueError as exc:
             raise exceptions.InvalidOption(f"Invalid background color provided: {background_color!r}") from exc
 
+    if supersample < 1:
+        raise exceptions.InvalidOption(f"Supersample must not be less than one, supersample provided: {supersample}")
+
     return border_color, padding_color, background_color
 
 
 def create_hexsticker(image: str, output: str, *,
                       border_size: int=0, border_color: str=None,
                       padding_size: int=0, padding_color: str=None,
-                      background_color=None) -> str:
+                      background_color=None,
+                      supersample: int=DEFAULT_SUPERSAMPLE) -> str:
     """Create a hexagon sticker.
 
     :param image: A source image to use as a hexsticker source.
@@ -135,13 +141,15 @@ def create_hexsticker(image: str, output: str, *,
     :param padding_size: Optional padding for the image.
     :param padding_color: Color of padded area (defaults to white).
     :param background_color: Color of background around hexagon
+    :param supersample: Scale factor to use for supersampling.
     :return: a path to resulting image
     """
     _LOGGER.debug("Checking supplied options")
     border_color, padding_color, background_color = _check_options(
         border_size=border_size, border_color=border_color,
         padding_size=padding_size, padding_color=padding_color,
-        background_color=background_color
+        background_color=background_color,
+        supersample=supersample,
     )
 
     _LOGGER.debug("Loading input image")
@@ -153,6 +161,14 @@ def create_hexsticker(image: str, output: str, *,
     # Cut image to fit aspect ratio, crop to center.
     _LOGGER.debug("Cropping source image")
     img = _crop_image(source_img)
+
+    source_size = img.size
+    supersample_size = (source_size[0] * supersample, source_size[1] * supersample)
+
+    if supersample > 1:
+        _LOGGER.debug(f"Upscaling source image {supersample}x to {supersample_size}")
+        img = img.resize(supersample_size)
+
 
     if padding_size:
         _LOGGER.debug("Padding image to center")
@@ -175,6 +191,10 @@ def create_hexsticker(image: str, output: str, *,
 
     _LOGGER.debug("Creating surrounding hexagon")
     _draw_hexagon(img, color=background_color or DEFAULT_BACKGROUND_COLOR)
+
+    if supersample > 1:
+        _LOGGER.debug(f"Downscaling output image {supersample}x back to {source_size}")
+        img = img.resize(source_size, Image.ANTIALIAS)
 
     output = output or _get_output_file_name(image)
     output_file_type = _get_file_type(output) if output else _get_file_type(image)
