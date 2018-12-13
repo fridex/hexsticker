@@ -104,6 +104,9 @@ Ehm, the default black one does not look that good in this case. Let's try some 
    :align: center
    :scale: 50%
 
+Note that the edges of the hexagon look a little jagged. You can apply supersampling to render smooth edges using the ``--supersample`` option. This option takes a number specifying the scale factor to use. This works by internally rendering the sticker at a higher resolution, then scaling it back down before saving the result.
+For example, if you pass ``--supersample 2``, the sticker will internally be rendered at twice the size, ``--supersample 4`` would be four times the size, and so on. Greater values result in a somewhat smoother result, at the expense of higher memory usage. This effect has diminishing returns; usually a value of 2 is enough for a nice result and going higher than 4 does not make much noticeable improvement.
+
 As you can see, this tool can automate creation of hexagon stickers so they respect the hexagon standard. Feel free to additionally adjust the resulting image of your logo or the input image.
 
 This tool supports only raster graphics.
