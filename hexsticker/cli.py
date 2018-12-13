@@ -12,6 +12,7 @@ from hexsticker.create import create_hexsticker
 from hexsticker.create import DEFAULT_BACKGROUND_COLOR
 from hexsticker.create import DEFAULT_BORDER_COLOR
 from hexsticker.create import DEFAULT_PADDING_COLOR
+from hexsticker.create import DEFAULT_SUPERSAMPLE
 
 logging.basicConfig()
 _LOGGER = logging.getLogger(hexsticker_name)
@@ -42,6 +43,8 @@ def _print_version(ctx, _, value):
 @click.option('--background-color', default=None, show_default=True, type=str,
               help=f"Background color for surrounding hexagon. "
                    f"Defaults to {DEFAULT_BACKGROUND_COLOR} if not provided.")
+@click.option('--supersample', default=DEFAULT_SUPERSAMPLE, show_default=True, type=int,
+              help=f"Scale factor to use for supersampling.")
 @click.option('--version', is_flag=True, is_eager=True, callback=_print_version, expose_value=False,
               help=f"Print {hexsticker_name} version and exit.")
 @click.option('--verbose', '-v', is_flag=True,
@@ -49,6 +52,7 @@ def _print_version(ctx, _, value):
 def hexsticker(image, output,
                border_size=0, border_color=None, padding_size=0,
                padding_color=None, background_color=None,
+               supersample=DEFAULT_SUPERSAMPLE,
                verbose=False):
     """Convert an image to hexagon sticker as defined by the Stickers Standard.
 
