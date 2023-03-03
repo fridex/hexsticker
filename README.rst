@@ -18,6 +18,17 @@ After the installation step listed above, you will be able to use the `hexsticke
 
   $ hexsticker --help
 
+Arch Linux
+^^^^^^^^^^
+
+There is an AUR package available here: https://aur.archlinux.org/packages/hexsticker
+
+For example with ``yay`` you can install it like this:
+
+.. code-block:: console
+
+  $ yay -S hexsticker
+
 
 Requirements
 ============
