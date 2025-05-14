@@ -1,2 +1,2 @@
 click
-pillow
+pillow>=10.0.0
