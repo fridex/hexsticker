@@ -194,7 +194,7 @@ def create_hexsticker(image: str, output: str, *,
 
     if supersample > 1:
         _LOGGER.debug(f"Downscaling output image {supersample}x back to {source_size}")
-        img = img.resize(source_size, Image.ANTIALIAS)
+        img = img.resize(source_size, Image.LANCZOS)
 
     output = output or _get_output_file_name(image)
     output_file_type = _get_file_type(output) if output else _get_file_type(image)
