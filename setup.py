@@ -44,6 +44,7 @@ setup(
     maintainer_email='fridolin.pokorny@gmail.com',
     description='Convert any image to image that conforms with hexagon stickers standard.',
     long_description=get_long_description(),
+    long_description_content_type='text/x-rst',
     url='https://github.com/fridex/hexsticker',
     license='GPLv2',
     keywords='hexagon stickers hexagon-stickers',

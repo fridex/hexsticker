@@ -43,7 +43,7 @@ Let's create a hexagon sticker for the `Selinon project <https://github.com/seli
 
 Here is the input image:
 
-.. figure:: https://raw.githubusercontent.com/fridex/hexsticker/master/fig/input/selinon.png
+.. image:: https://raw.githubusercontent.com/fridex/hexsticker/master/fig/input/selinon.png
    :alt: Selinon input logo
    :align: center
 
@@ -57,10 +57,9 @@ Let's create a hexagon sticker:
 
 The resulting image is:
 
-.. figure:: https://raw.githubusercontent.com/fridex/hexsticker/master/fig/output/selinon-sticker-1.png
+.. image:: https://raw.githubusercontent.com/fridex/hexsticker/master/fig/output/selinon-sticker-1.png
    :alt: Selinon hexagon sticker sticker 1
    :align: center
-   :scale: 50%
 
 As can be seen above, there are some parts cut off - let's add some padding to the image:
 
@@ -70,10 +69,9 @@ As can be seen above, there are some parts cut off - let's add some padding to t
   INFO:hexsticker.create:Writing output to 'selinon-sticker-2.png'
 
 
-.. figure:: https://raw.githubusercontent.com/fridex/hexsticker/master/fig/output/selinon-sticker-2.png
+.. image:: https://raw.githubusercontent.com/fridex/hexsticker/master/fig/output/selinon-sticker-2.png
    :alt: Selinon hexagon sticker sticker 2
    :align: center
-   :scale: 50%
 
 
 The padded part is white by default - that's why there are missing spikes of hexagon. Let's set color of padded area to the same color as background color of the original image:
@@ -83,10 +81,9 @@ The padded part is white by default - that's why there are missing spikes of hex
   $ hexsticker input/selinon.png -o output/selinon-sticker-3.png --padding-size 25 --padding-color '#66cfa7'
   INFO:hexsticker.create:Writing output to 'selinon-sticker-3.png'
 
-.. figure:: https://raw.githubusercontent.com/fridex/hexsticker/master/fig/output/selinon-sticker-3.png
+.. image:: https://raw.githubusercontent.com/fridex/hexsticker/master/fig/output/selinon-sticker-3.png
    :alt: Selinon hexagon sticker sticker 3
    :align: center
-   :scale: 50%
 
 
 Nice! What we could do next? Let's try to add a hexagon border:
@@ -97,10 +94,9 @@ Nice! What we could do next? Let's try to add a hexagon border:
   INFO:hexsticker.create:Writing output to 'selinon-sticker-4.png'
 
 
-.. figure:: https://raw.githubusercontent.com/fridex/hexsticker/master/fig/output/selinon-sticker-4.png
+.. image:: https://raw.githubusercontent.com/fridex/hexsticker/master/fig/output/selinon-sticker-4.png
    :alt: Selinon hexagon sticker sticker 4
    :align: center
-   :scale: 50%
 
 Ehm, the default black one does not look that good in this case. Let's try some color that fits color scheme:
 
@@ -110,10 +106,9 @@ Ehm, the default black one does not look that good in this case. Let's try some 
   INFO:hexsticker.create:Writing output to 'selinon-sticker-5.png'
 
 
-.. figure:: https://raw.githubusercontent.com/fridex/hexsticker/master/fig/output/selinon-sticker-5.png
+.. image:: https://raw.githubusercontent.com/fridex/hexsticker/master/fig/output/selinon-sticker-5.png
    :alt: Selinon hexagon sticker sticker 5
    :align: center
-   :scale: 50%
 
 Note that the edges of the hexagon look a little jagged. You can add ``--supersample 2`` to the previous command to remedy this. The number given sets the scale factor to use. Greater values result in a smoother result, at the expense of higher memory usage. This effect has diminishing returns; usually a value of 2 is enough for a nice result and going higher than 4 does not make much noticeable improvement.
 
